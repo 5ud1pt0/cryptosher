@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import './styles/App.css';
 import { ethers } from "ethers";
 import CryptoSher from './utils/CryptoSher.json';
-import { toast } from "react-hot-toast"
+import { toast } from "react-hot-toast";
+
 import { networks } from './utils/network.js';
 import gulzarPic from './assets/Gulzar.jpeg';
 
@@ -170,7 +171,7 @@ const App = () => {
       
       const polygonChainId = "0x13881"; 
       if (chainId !== polygonChainId) {
-        toast("You are not connected to the Polygon Test Network!");
+        toast("You are not connected to the Polygon Network!");
         return;
       }
      
@@ -298,11 +299,11 @@ const App = () => {
                       }
                      <div className="flex justify-center mt-5">
                      
-                    <span className="text-base dark:text-white text-slate-600"> Total Minted : { totalMinted } / 5,000</span>
+                    <span className="text-base  text-slate-600"> Total Minted : { totalMinted } / 5,000</span>
                     
                                         
                    </div>
-                   <div className="w-full bg-gray-200 rounded-full h-6 dark:bg-gray-700 mt-2">
+                   <div className="w-full bg-gray-200 rounded-full h-6 mt-2">
                      <div className="bg-sky-500 h-6 rounded-full" style={{width: (Math.round( ( totalMinted * 100 ) / 5000))+"%"}}> </div>
                    </div>
                    </div>
@@ -379,11 +380,11 @@ const App = () => {
           <p className="text-gray-900 font-semibold ">Frequently Asked Questions</p>
        
 
-    <details className="open:bg-white dark:open:bg-slate-600 " open>
-    <summary className="leading-6 text-slate-600 dark:text-white  select-none">
+    <details className="open:bg-white" open>
+    <summary className="leading-6 text-slate-600   select-none">
     What is the contract address?
     </summary>
-    <div className="mt-3 leading-6 text-slate-600 dark:text-slate-400">
+    <div className="mt-3 leading-6 text-slate-600 ">
      <a className="italic"
             href={CONTRACT_LINK}
             target="_blank"
@@ -392,31 +393,31 @@ const App = () => {
     </div>
   </details>
 
-  <details className="open:bg-white dark:open:bg-slate-600 " >
-    <summary className="leading-6 text-slate-600 dark:text-white  select-none">
+  <details className="open:bg-white  " >
+    <summary className="leading-6 text-slate-600   select-none">
     How many total shers can be minted?
     </summary>
-    <div className="mt-3 leading-6 text-slate-600 dark:text-slate-400">
+    <div className="mt-3 leading-6 text-slate-600 ">
       <p className="italic">5,555 shers can be minted by the contract. 5,000 are available for public mint. </p>
     </div>
   </details>
 
 
-  <details className="open:bg-white dark:open:bg-slate-600 " >
-    <summary className="leading-6 text-slate-600 dark:text-white  select-none">
+  <details className="open:bg-white  " >
+    <summary className="leading-6 text-slate-600   select-none">
     What does it cost to mint a sher NFT?
     </summary>
-    <div className="mt-3 leading-6 text-slate-600 dark:text-slate-400">
+    <div className="mt-3 leading-6 text-slate-600 ">
       <p className="italic">5 MATIC + gas.</p>
     </div>
   </details>
 
 
-  <details className="open:bg-white dark:open:bg-slate-600 ">
-    <summary className="leading-6 text-slate-600 dark:text-white select-none">
+  <details className="open:bg-white  ">
+    <summary className="leading-6 text-slate-600  select-none">
     How are the shers generated?
     </summary>
-    <div className="mt-3 leading-6 text-slate-600 dark:text-slate-400">
+    <div className="mt-3 leading-6 text-slate-600 ">
       <p className="italic">Each Sher is randomly generated based on a preset collection of words and poem structure.</p>
     </div>
   </details>
