@@ -8,7 +8,7 @@ import gulzarPic from './assets/Gulzar.jpeg';
 
 const TWITTER_HANDLE = 'anuraag_saxena';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const OPENSEA_LINK = 'https://testnets.opensea.io/collection/arz-kiya-hai-8clisczbhw';
+const OPENSEA_LINK = 'https://testnets.opensea.io/collection/arz-kiya-hai-cryptosher';
 const CONTRACT_LINK = 'https://mumbai.polygonscan.com/address/0x8e7A2eb29D8170728C80E0cA98f473dBD18D9c6F#code'
 
 const CONTRACT_ADDRESS = "0x8e7A2eb29D8170728C80E0cA98f473dBD18D9c6F";
