@@ -220,9 +220,9 @@ const App = () => {
     </div>
   );
   
-  useEffect(() => {
-    checkIfWalletIsConnected();
-  }, [])
+	useEffect(() => {
+		checkIfWalletIsConnected();
+	}, );
 
 
   return (
