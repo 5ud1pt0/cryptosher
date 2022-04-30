@@ -9,10 +9,10 @@ import gulzarPic from './assets/Gulzar.jpeg';
 
 const TWITTER_HANDLE = 'anuraag_saxena';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const OPENSEA_LINK = 'https://testnets.opensea.io/collection/cryptosher';
-const CONTRACT_LINK = 'https://mumbai.polygonscan.com/address/0x8e7A2eb29D8170728C80E0cA98f473dBD18D9c6F#code'
+const OPENSEA_LINK = 'https://opensea.io/collection/cryptosher';
+const CONTRACT_LINK = 'https://polygonscan.com/address/0x4987797b94f247235f223cd4ea19e45d0a9700c6'
 
-const CONTRACT_ADDRESS = "0x8e7A2eb29D8170728C80E0cA98f473dBD18D9c6F";
+const CONTRACT_ADDRESS = "0x4987797B94f247235f223CD4ea19e45d0A9700c6";
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
@@ -64,7 +64,7 @@ const App = () => {
       try {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0x13881' }],  
+          params: [{ chainId: '0x89' }],  
         });
       } catch (error) {
         if (error.code === 4902) {
@@ -73,15 +73,15 @@ const App = () => {
               method: 'wallet_addEthereumChain',
               params: [
                 {	
-                  chainId: '0x13881',
-                  chainName: 'Polygon Mumbai Testnet',
-                  rpcUrls: ['https://rpc-mumbai.maticvigil.com/'],
+                  chainId: '0x89',
+                  chainName: 'Polygon Mainnet',
+                  rpcUrls: ['https://polygon-rpc.com/'],
                   nativeCurrency: {
-                      name: "Mumbai Matic",
+                      name: "Matic Network",
                       symbol: "MATIC",
                       decimals: 18
                   },
-                  blockExplorerUrls: ["https://mumbai.polygonscan.com/"]
+                  blockExplorerUrls: ["https://polygonscan.com/"]
                 },
               ],
             });
@@ -92,7 +92,7 @@ const App = () => {
         console.log(error);
       }
     } else {
-      alert('MetaMask is not installed. Please install it to use this app: https://metamask.io/download.html');
+      toast('MetaMask is not installed. Please install it to use this app: https://metamask.io/download.html');
     } 
   }
  
@@ -130,7 +130,7 @@ const App = () => {
         let chainId = await ethereum.request({ method: 'eth_chainId' });
         console.log("Connected to chain " + chainId);
 
-        const polygonChainId = "0x13881"; 
+        const polygonChainId = "0x89"; 
         if (chainId !== polygonChainId) {
           return;
         }
@@ -146,7 +146,7 @@ const App = () => {
         connectedContract.on("CryptoSherMinted", (from, tokenId) => {
           console.log(from, tokenId.toNumber());
           settotalMinted( total_minted.toNumber() );
-          setErrorMessage("https://testnets.opensea.io/assets/mumbai/" + CONTRACT_ADDRESS + "/" + tokenId);
+          setErrorMessage("https://opensea.io/assets/matic/" + CONTRACT_ADDRESS + "/" + tokenId);
           
         });
 
@@ -169,7 +169,7 @@ const App = () => {
       console.log("Connected to chain " + chainId);
 
       
-      const polygonChainId = "0x13881"; 
+      const polygonChainId = "0x89"; 
       if (chainId !== polygonChainId) {
         toast("You are not connected to the Polygon Network!");
         return;
@@ -182,20 +182,18 @@ const App = () => {
 
     const nftcount = await connectedContract.getTotalNFTsMintedSoFar();
     console.log(nftcount.toNumber())
-     const price = .05;
+     const price = 5;
      
      console.log(price);
       
       console.log("Going to pop wallet now to pay gas...")
       let nftTxn = await connectedContract.mintCryptoSher({ value: ethers.utils.parseEther(price.toString()) });
-      //let nftTxn = await connectedContract.reserveShers();
-      //let nftTxn = await connectedContract.withdraw();
       setMining(true);
       setErrorMessage('');
       console.log("Mining...please wait.")
       await nftTxn.wait();
       
-      console.log(`Mined, see transaction: https://mumbai.polygonscan.com/tx/${nftTxn.hash}`);
+      console.log(`Mined, see transaction: https://polygonscan.com/tx/${nftTxn.hash}`);
      
 
     } else {
@@ -236,7 +234,7 @@ const App = () => {
         <div className=" text-base leading-7 space-y-5 text-gray-600 ">
         <div className="flex md:order-2  justify-end items-end ">
       
-      { currentAccount  ? currentAccount && network === 'Polygon Mumbai Testnet' ?
+      { currentAccount  ? currentAccount && network === 'Polygon Mainnet' ?
       <div className=" text-gray-500 bg-gray-200 font-medium rounded-lg text-sm px-2.5 py-1.5 text-center mr-3 md:mr-0 ">
       <p>  {currentAccount.slice(0, 6)}...{currentAccount.slice(-4)} </p> 
       </div>
