@@ -200,6 +200,7 @@ const App = () => {
       console.log("Ethereum object doesn't exist!");
     }
   } catch (error) {
+    toast("Insufficient funds!" );
     console.log(error)
   }
  finally {
@@ -226,7 +227,7 @@ const App = () => {
 
   return (
 <div className="min-h-screen bg-gray-50 py-6 flex flex-col justify-center relative overflow-hidden sm:py-12">
-<div className="absolute inset-0 bg-[url(./assets/grid.svg)] bg-center blur-2xl"></div>
+<div className="absolute inset-0 bg-[url(./assets/grid.svg)] bg-center"></div>
 
     <div className=" relative px-6 pt-10 pb-2 bg-white shadow-xl ring-1 ring-gray-900/5 sm:max-w-2xl sm:mx-auto sm:rounded-lg sm:px-10">
     <div className="max-w-xl mx-auto  ">
